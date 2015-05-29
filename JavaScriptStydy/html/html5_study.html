@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>canvas tudy </title>
+	</head>
+	<body>
+		<canvas id="canvas_0" width="400px" height="300px"></canvas>
+	</body>
+	<script>
+		var vRWidth = 400;
+		var vRHeight = 300;
+		var oCanvas_0 = document.getElementById("canvas_0");
+		var o2Context = oCanvas_0.getContext("2d");
+		o2Context.fillStyle = "aqua";
+		o2Context.fillRect(0,0,vRWidth,vRHeight);
+		oCanvas_0.onclick=function(){
+			o2Context.clearRect(0,0,400,300);
+			o2Context.fillRect(0,0,vRWidth,vRHeight);
+			o2Context.shadowBlur=20.0;
+			vRWidth-=50;
+			vRHeight-=50;
+		}
+	</script>
+</html>

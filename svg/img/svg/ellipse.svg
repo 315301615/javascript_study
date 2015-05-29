@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"	>
+	<ellipse cx="200px" cy="200px" rx="200px" ry="150px" style="fill:blue;stroke:red;stroke-width=3px;opacity:0.5;"/>
+	<ellipse cx="300px" cy="400px" rx="150px" ry="100px" style="fill:yellow;stroke:white;stroke-width=3px;opacity:0.5;"/>
+	<ellipse cx="400px" cy="500px" rx="100px" ry="50px" style="fill:white;stroke:green;stroke-width=3px;opacity:0.5;"/>
+</svg>

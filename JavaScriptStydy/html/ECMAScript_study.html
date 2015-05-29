@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div_show_msg"></div>
+	</body>
+	<script>
+		var oDivShowMsg = document.getElementById("div_show_msg");
+		fnTest(1);
+		fnTest(2,1)
+		function fnTest(){
+			if(arguments.length==1){
+				oDivShowMsg.innerHTML = "调用了1个参数的函数";
+			}else if(arguments.length==2){
+				oDivShowMsg.innerHTML = oDivShowMsg.innerHTML+" <br/>调用了2个参数的函数";
+			}
+			oDivShowMsg.innerHTML = oDivShowMsg.innerHTML+" <br/>"+fnTest.toString();
+		}
+	</script>
+</html>

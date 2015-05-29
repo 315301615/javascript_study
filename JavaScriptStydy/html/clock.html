@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas_0" width="400dx" height="400px"></canvas>
+	</body>
+	<script language="JavaScript">
+		var canvas = document.getElementById("canvas_0"),
+			context = canvas.getContext("2d"),
+			forntHeight = 15,
+			MARGIN = 35,
+			HAND_TRUNCATION = canvas.width/25,
+			HOUR_TRUNCATION = canvas.width/10,
+			NUMERAL_SPACING = 10,
+			RADIUS = canvas.width/2 -MARGIN,
+			HAND_RADIUS = RADIUS + NUMERAL_SPACING;
+			/**
+			 * 画表盘
+			 */
+			function drawCircle(){
+				context.beginPath();
+				context.arc(canvas.width/2, canvas.height/2, RADIUS, 0, Math.PI*2,true)
+				context.stroke();
+			}
+			/**
+			 * 画表字
+			 */
+			function drawNumerals(){
+				var aNumerals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+					iAngle = 0;
+					iNumeralWidth = 0;
+				aNumerals.forEach(function(iNumeral){
+					iAngle = Math.PI/6 * (iNumeral-3);
+					iNumeralWidth = context.measureText(iNumeral).width;
+					context.fillText(iNumeral,
+						canvas.width/2 + Math.cos(iAngle)*HAND_RADIUS - NUMERAL_SPACING/2,
+						canvas.height/2 + Math.sin(iAngle)*HAND_RADIUS + forntHeight/3);
+				});
+			}
+			/**
+			 * 画表中心
+			 */
+			function drawCenter(){
+					context.beginPath();
+					context.arc(canvas.width/2, canvas.height/2, 5, 0, Math.PI*2, true);
+					context.fill();
+			}
+			/**
+			 * 画表针
+			 */
+			function drawHand(vClock, isHour){
+				var vAngle = (Math.PI*2)*(vClock/60) - (Math.PI/2),
+					handRadius = isHour==true?RADIUS - HAND_TRUNCATION - HOUR_TRUNCATION : RADIUS - HAND_TRUNCATION;
+					context.moveTo(canvas.width/2, canvas.height/2);
+					context.lineTo(canvas.width/2 + Math.cos(vAngle)*handRadius,canvas.height/2 + Math.sin(vAngle)*handRadius);
+					context.stroke();
+			}
+			/**
+			 * 画各个时段的表针
+			 */
+			function drawHands(){
+				var date = new Date(),
+				hour = date.getHours();
+				hour = hour>12 ? hour-12 : hour;
+				//时针
+				drawHand(hour*5 + date.getMinutes()/60*5, true);
+				//分针
+				drawHand(date.getMinutes(), false,0.5);
+				//秒针
+				drawHand(date.getMilliseconds(), false);
+			}
+			/**
+			 * 画一次表
+			 */
+			function drawClock(){
+				context.clearRect(0,0,canvas.width,canvas.height);
+				drawCircle();
+				drawNumerals();
+				drawCenter();
+				drawHands();
+			}
+			context.font = forntHeight+"px Arial"
+			loop = setInterval(drawClock, 1);
+	</script>
+</html>
