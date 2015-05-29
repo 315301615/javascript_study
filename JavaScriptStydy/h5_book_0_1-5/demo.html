@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				background: #DDDDDD;
+			}
+			#canvas{
+				position: absolute;
+				left: 0px;
+				top: 20px;
+				margin: 20px;
+				background: #FFFFFF;
+				border: thin inset rgba(100, 150, 230 0.5);
+				cursor: pointer;
+			}
+			#readout{
+				margin-top: 10px;
+				margin-left: 15px;
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="readout"></div>
+		<canvas id="canvas" width="500ox" height="250px">
+			html5 is not sport
+		</canvas>
+		<script language="JavaScript">
+			var canvas = document.getElementById("canvas"),
+				readout = document.getElementById("readout"),
+				context = canvas.getContext("2d"),
+				spritsheet = new Image();
+			//function area start ----------------------------------------
+			/**
+			 * 窗体至canvas坐标转换器
+			 */
+			function windownToCanvas(oCanvas, x, y){
+				var oBBox = oCanvas.getBoundingClientRect();
+				return {
+					x:x-oBBox.left*(oCanvas.width/oBBox.width),
+					y:y-oBBox.top*(oCanvas.width/oBBox.width)
+				}; 
+			}
+		</script>
+	</body>
+</html>
