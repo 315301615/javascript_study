@@ -28,22 +28,6 @@
 		<canvas id="canvas" width="500ox" height="250px">
 			html5 is not sport
 		</canvas>
-		<script language="JavaScript">
-			var canvas = document.getElementById("canvas"),
-				readout = document.getElementById("readout"),
-				context = canvas.getContext("2d"),
-				spritsheet = new Image();
-			//function area start ----------------------------------------
-			/**
-			 * 窗体至canvas坐标转换器
-			 */
-			function windownToCanvas(oCanvas, x, y){
-				var oBBox = oCanvas.getBoundingClientRect();
-				return {
-					x:x-oBBox.left*(oCanvas.width/oBBox.width),
-					y:y-oBBox.top*(oCanvas.width/oBBox.width)
-				}; 
-			}
-		</script>
+		<script language="JavaScript" src="./demo.js"></script>
 	</body>
 </html>
