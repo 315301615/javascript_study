@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#canvas{
+				background: #EEEEEE;
+				border: thin solid cornflowerblue;
+			}
+			#radios{
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="radios">
+			<input id="noRepeatRadio" type="radio" name="patternRadio" checked="checked"/>no repeat
+			<input id="repeatRadio" type="radio" name="patternRadio" />repeat
+			<input  id="repeatXRadio" type="radio" name="patternRadio" />repeat X
+			<input  id="repeatYRadio" type="radio" name="patternRadio" />repeat Y
+		</div>
+		<canvas id="canvas"></canvas>
+		<script src="./demo.js"></script>
+	</body>
+</html>
